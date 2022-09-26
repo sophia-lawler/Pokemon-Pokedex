@@ -8,6 +8,7 @@ import Divider from './Divider'
 import RightPanel from './RightPanel'
 import LeftPanel from './LeftPanel'
 import { fetchPokemon } from '../api'
+import {fetchingPokemon} from './pokeHelper'
 
 function App() {
   const [pokemonData, setPokemonData] = useState(null)
@@ -16,27 +17,13 @@ function App() {
   const [speciesData, setSpeciesData] = useState(null)
   const [randomId, setRandomId] = useState(null)
 
-function fetchingPokemon(pokemon) {
-    setLoading(true)
-    setTimeout(() => {
-      fetchPokemon(pokemon)
-        .then((data) => {
-          setPokemonData(data.body)
-          console.log(data.body)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-        .catch((err) => console.error(err.message))
-    }, 1500)
-  }
   
   useEffect(() => {
-    fetchingPokemon(userInputPokemon) 
+    fetchingPokemon(userInputPokemon, setLoading, fetchPokemon, setPokemonData) 
   }, [userInputPokemon])
 
   useEffect(() => {
-    fetchingPokemon(randomId) 
+    fetchingPokemon(randomId, setLoading, fetchPokemon, setPokemonData) 
   }, [randomId])
 
   return (
