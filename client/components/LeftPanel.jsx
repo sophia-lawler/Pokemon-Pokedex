@@ -1,44 +1,43 @@
 /* eslint-disable no-unused-vars */
-import React, {useState} from "react"
+import React, { useState } from 'react'
+import Abilities from './Abilities'
+import Sprite from './Sprite'
 
-function LeftPanel({pokemonData, setUserInputPokemon, PokeSearch}) {
-
+function LeftPanel({ pokemonData, setUserInputPokemon, PokeSearch, setRandomId }) {
   const [form, setForm] = useState('')
-  const [image, setImage] = useState('front_default')
 
   function handleChange(event) {
     setForm(event.target.value)
-  
   }
 
   function handleSubmit(event) {
     event.preventDefault()
     setUserInputPokemon(form)
   }
+function handleClick(e) {
+  e.preventDefault() 
+  const index = Math.floor(Math.random() * (1118 - 1) + 1);
+  setRandomId(index)
+}
 
-  function handleImage() {
-    image === 'front_default' ? setImage('back_default') : setImage('front_default')
-  }
+
+
 
   return (
     <div className="panel left-panel">
-            <div className="screen"> 
-              <h2 className='pokemon-name'>{pokemonData.name} no.{pokemonData.id}</h2>
-            </div>
-            <img className='pokemon-sprite'
-                src={pokemonData.sprites[image]}
-                alt={`Front sprite of ${pokemonData.name}`}
-            />
-            <div className="sprite-controls">
-              <button className="sprite-control sprite-controls-gender " onClick={handleImage}>ᐅ</button>
-              <button className="sprite-control sprite-controls-rotate " onClick={handleImage}>ᐊ</button>
-            </div>
-
-            <div className="screen">
-            <p> placeholder text for some kind of description</p>
-            </div>
-            <PokeSearch handleSubmit={handleSubmit} handleChange={handleChange}/>
-          </div>
+      <div className="button" onClick={handleClick}></div>
+      <div className="titleScreen">
+        <h2 className="pokemon-name">
+          {pokemonData.name} no.{pokemonData.id}
+        </h2>
+      </div>
+        <Sprite pokemonData={pokemonData} />
+      <div className="screen">
+        <p> placeholder text for some kind of description</p>
+      </div>
+      <Abilities pokemonData={pokemonData} />
+      <PokeSearch handleSubmit={handleSubmit} handleChange={handleChange} />
+    </div>
   )
 }
 
