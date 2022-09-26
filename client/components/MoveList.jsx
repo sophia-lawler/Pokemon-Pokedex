@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, {useEffect, useState} from "react"
-import { move } from "superagent"
-import {fetchMove} from "../api"
+import React, { useEffect, useState } from 'react'
+import { move } from 'superagent'
+import { fetchMove } from '../api'
 
-function MoveList({pokemonData}) {
+function MoveList({ pokemonData }) {
   const { moves } = pokemonData
   const [moveIndex, setMoveIndex] = useState(0)
   const [newMove, setNewMove] = useState({})
@@ -12,25 +12,25 @@ function MoveList({pokemonData}) {
   function handleMove(direction) {
     let i = moveIndex
     direction === 'up' && moveIndex < moves.length - 1
-    ? setMoveIndex((i + 1))
-    : moveIndex !== 0 
-    ? setMoveIndex((i- 1)) 
-    : null
+      ? setMoveIndex(i + 1)
+      : moveIndex !== 0
+      ? setMoveIndex(i - 1)
+      : null
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     setLoader(true)
     fetchMove(moves[moveIndex].move.url)
-      .then(move => 
-        setNewMove(move.body))
+      .then((move) => setNewMove(move.body))
       .finally(() => setLoader(false))
-      .catch((err)=> console.log(err))
+      .catch((err) => console.log(err))
   }, [moveIndex])
 
-  return (
-    loader ? <p>Loading...</p>
-    : <>
-     <p className="panel-header">Moves</p>
+  return loader ? (
+    <p>Loading...</p>
+  ) : (
+    <>
+      <p className="panel-header">Moves</p>
       <div className="move-list">
         <div className="move-body move-screen screen">
           <div className="move-left">
@@ -45,8 +45,14 @@ function MoveList({pokemonData}) {
         </div>
       </div>
       <div className="sprite-controls">
-        <button className="sprite-control sprite-controls-gender " onClick={() => handleMove('down')}>ᐅ</button>
-        <button className="sprite-control sprite-controls-rotate " onClick={() => handleMove('up')}>ᐊ</button>
+        <button
+          className="sprite-control sprite-controls-gender "
+          onClick={() => handleMove('down')}
+        ></button>
+        <button
+          className="sprite-control sprite-controls-rotate "
+          onClick={() => handleMove('up')}
+        ></button>
       </div>
     </>
   )
