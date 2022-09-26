@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-import { fetchEvolution, fetchPokemon } from '../api'
+import { fetchEvolution, fetchPokemon } from '../../api'
 
 function Evolution({ speciesData }) {
   const [loader, setLoader] = useState(true)
@@ -33,7 +33,7 @@ function Evolution({ speciesData }) {
     <div className="panel-row panel-evo">
       {evoArray.map((evo, i) => {
         return (
-          <div key = {evo.id}>
+          <div key={evo.id}>
             <div className="flex-center">
               {i === 0 ? (
                 <h3 className="evo-num">I</h3>

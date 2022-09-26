@@ -4,9 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Evolution from './Evolution'
 import Stats from './Stats'
 import MoveList from './MoveList'
-import Abilities from './Abilities'
 import Types from './Types'
-import { fetchSpecies } from '../api'
+import { fetchSpecies } from '../../api'
 
 function RightPanel({ pokemonData, speciesData, setSpeciesData }) {
   const [loader, setLoader] = useState(true)

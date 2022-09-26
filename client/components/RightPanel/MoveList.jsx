@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-import { move } from 'superagent'
-import { fetchMove } from '../api'
+import { fetchMove } from '../../api'
 
 function MoveList({ pokemonData }) {
   const { moves } = pokemonData

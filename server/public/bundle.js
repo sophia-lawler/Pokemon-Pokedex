@@ -117,41 +117,6 @@ function fetchSpecies(url) {
 
 /***/ }),
 
-/***/ "./client/components/Abilities.jsx":
-/*!*****************************************!*\
-  !*** ./client/components/Abilities.jsx ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* eslint-disable no-unused-vars */
-
-
-function Abilities(_ref) {
-  var pokemonData = _ref.pokemonData;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "panel-header"
-  }, "Abilities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "type-box-abil"
-  }, pokemonData.abilities.map(function (x, i) {
-    return i === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      key: i,
-      className: "type fire"
-    }, x.ability.name) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      key: i,
-      className: "type water"
-    }, x.ability.name);
-  })));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Abilities);
-
-/***/ }),
-
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -163,11 +128,11 @@ function Abilities(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loader */ "./client/components/Loader.jsx");
-/* harmony import */ var _PokeSearch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PokeSearch */ "./client/components/PokeSearch.jsx");
-/* harmony import */ var _Divider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Divider */ "./client/components/Divider.jsx");
-/* harmony import */ var _RightPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RightPanel */ "./client/components/RightPanel.jsx");
-/* harmony import */ var _LeftPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LeftPanel */ "./client/components/LeftPanel.jsx");
+/* harmony import */ var _Divider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Divider */ "./client/components/Divider.jsx");
+/* harmony import */ var _RightPanel_RightPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RightPanel/RightPanel */ "./client/components/RightPanel/RightPanel.jsx");
+/* harmony import */ var _LeftPanel_LeftPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LeftPanel/LeftPanel */ "./client/components/LeftPanel/LeftPanel.jsx");
+/* harmony import */ var _Title__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Title */ "./client/components/Title.jsx");
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Loader */ "./client/components/Loader.jsx");
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../api */ "./client/api.js");
 /* harmony import */ var _pokeHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pokeHelper */ "./client/components/pokeHelper.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -215,7 +180,7 @@ function App() {
       speciesData = _useState8[0],
       setSpeciesData = _useState8[1];
 
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(1),
       _useState10 = _slicedToArray(_useState9, 2),
       randomId = _useState10[0],
       setRandomId = _useState10[1];
@@ -226,21 +191,21 @@ function App() {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     Object(_pokeHelper__WEBPACK_IMPORTED_MODULE_7__["fetchingPokemon"])(randomId, setLoading, _api__WEBPACK_IMPORTED_MODULE_6__["fetchPokemon"], setPokemonData);
   }, [randomId]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "titutal"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "../pokemon.png"
-  })), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_1__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Title__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pokedex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Title__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pokedex"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftPanel_LeftPanel__WEBPACK_IMPORTED_MODULE_3__["default"], {
     pokemonData: pokemonData,
     setUserInputPokemon: setUserInputPokemon,
-    PokeSearch: _PokeSearch__WEBPACK_IMPORTED_MODULE_2__["default"],
     speciesData: speciesData,
-    setRandomId: setRandomId
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Divider__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightPanel__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    setRandomId: setRandomId,
+    loading: loading
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Divider__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightPanel_RightPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
     pokemonData: pokemonData,
     speciesData: speciesData,
     setSpeciesData: setSpeciesData
@@ -289,10 +254,10 @@ function Divider() {
 
 /***/ }),
 
-/***/ "./client/components/Evolution.jsx":
-/*!*****************************************!*\
-  !*** ./client/components/Evolution.jsx ***!
-  \*****************************************/
+/***/ "./client/components/LeftPanel/Abilities.jsx":
+/*!***************************************************!*\
+  !*** ./client/components/LeftPanel/Abilities.jsx ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -300,7 +265,250 @@ function Divider() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api */ "./client/api.js");
+/* eslint-disable no-unused-vars */
+
+
+function Abilities(_ref) {
+  var pokemonData = _ref.pokemonData;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "panel-header"
+  }, "Abilities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "type-box-abil"
+  }, pokemonData.abilities.map(function (x, i) {
+    return i === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      key: i,
+      className: "type fire"
+    }, x.ability.name) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      key: i,
+      className: "type water"
+    }, x.ability.name);
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Abilities);
+
+/***/ }),
+
+/***/ "./client/components/LeftPanel/LeftPanel.jsx":
+/*!***************************************************!*\
+  !*** ./client/components/LeftPanel/LeftPanel.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Abilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Abilities */ "./client/components/LeftPanel/Abilities.jsx");
+/* harmony import */ var _Sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sprite */ "./client/components/LeftPanel/Sprite.jsx");
+/* harmony import */ var _PokeSearch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PokeSearch */ "./client/components/LeftPanel/PokeSearch.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/* eslint-disable no-unused-vars */
+
+
+
+
+
+function LeftPanel(_ref) {
+  var pokemonData = _ref.pokemonData,
+      setUserInputPokemon = _ref.setUserInputPokemon,
+      setRandomId = _ref.setRandomId;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      form = _useState2[0],
+      setForm = _useState2[1];
+
+  function handleChange(event) {
+    setForm(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setUserInputPokemon(form);
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    var index = Math.floor(Math.random() * (1118 - 1) + 1);
+    setRandomId(index);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel left-panel"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "button",
+    onClick: handleClick
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "titleScreen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "pokemon-name"
+  }, pokemonData.name, " no.", pokemonData.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pokemonData: pokemonData
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "screen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " placeholder text for some kind of description")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Abilities__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    pokemonData: pokemonData
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PokeSearch__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    handleSubmit: handleSubmit,
+    handleChange: handleChange
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (LeftPanel);
+
+/***/ }),
+
+/***/ "./client/components/LeftPanel/PokeSearch.jsx":
+/*!****************************************************!*\
+  !*** ./client/components/LeftPanel/PokeSearch.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.mjs");
+/* eslint-disable no-unused-vars */
+
+
+
+
+function PokeSearch(_ref) {
+  var handleSubmit = _ref.handleSubmit,
+      handleChange = _ref.handleChange;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "screen input",
+    type: "text",
+    name: "pokemon",
+    placeholder: "Search Pokemon!",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    type: "submit",
+    onClick: handleSubmit,
+    className: "game-plus",
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPlus"]
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (PokeSearch);
+
+/***/ }),
+
+/***/ "./client/components/LeftPanel/Sprite.jsx":
+/*!************************************************!*\
+  !*** ./client/components/LeftPanel/Sprite.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/* eslint-disable no-unused-vars */
+
+
+function Sprite(_ref) {
+  var pokemonData = _ref.pokemonData;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('front_default'),
+      _useState2 = _slicedToArray(_useState, 2),
+      image = _useState2[0],
+      setImage = _useState2[1];
+
+  function handleImage() {
+    image === 'front_default' ? setImage('back_default') : setImage('front_default');
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spriteScreen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pokemon-sprite"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "pokemon",
+    src: pokemonData.sprites[image],
+    alt: "Front sprite of ".concat(pokemonData.name)
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sprite-controls"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "sprite-control sprite-controls-gender ",
+    onClick: handleImage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "sprite-control sprite-controls-rotate ",
+    onClick: handleImage
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Sprite);
+
+/***/ }),
+
+/***/ "./client/components/Loader.jsx":
+/*!**************************************!*\
+  !*** ./client/components/Loader.jsx ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable no-unused-vars */
+
+
+function Loader() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "loader"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "loader-middle"
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Loader);
+
+/***/ }),
+
+/***/ "./client/components/RightPanel/Evolution.jsx":
+/*!****************************************************!*\
+  !*** ./client/components/RightPanel/Evolution.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./client/api.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -379,10 +587,10 @@ function Evolution(_ref) {
 
 /***/ }),
 
-/***/ "./client/components/LeftPanel.jsx":
-/*!*****************************************!*\
-  !*** ./client/components/LeftPanel.jsx ***!
-  \*****************************************/
+/***/ "./client/components/RightPanel/MoveList.jsx":
+/*!***************************************************!*\
+  !*** ./client/components/RightPanel/MoveList.jsx ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -390,8 +598,7 @@ function Evolution(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Abilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Abilities */ "./client/components/Abilities.jsx");
-/* harmony import */ var _Sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sprite */ "./client/components/Sprite.jsx");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./client/api.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -405,115 +612,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* eslint-disable no-unused-vars */
-
-
-
-
-function LeftPanel(_ref) {
-  var pokemonData = _ref.pokemonData,
-      setUserInputPokemon = _ref.setUserInputPokemon,
-      PokeSearch = _ref.PokeSearch,
-      setRandomId = _ref.setRandomId;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState2 = _slicedToArray(_useState, 2),
-      form = _useState2[0],
-      setForm = _useState2[1];
-
-  function handleChange(event) {
-    setForm(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setUserInputPokemon(form);
-  }
-
-  function handleClick(e) {
-    e.preventDefault();
-    var index = Math.floor(Math.random() * (1118 - 1) + 1);
-    setRandomId(index);
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "panel left-panel"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "button",
-    onClick: handleClick
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "titleScreen"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "pokemon-name"
-  }, pokemonData.name, " no.", pokemonData.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    pokemonData: pokemonData
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "screen"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " placeholder text for some kind of description")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Abilities__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    pokemonData: pokemonData
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PokeSearch, {
-    handleSubmit: handleSubmit,
-    handleChange: handleChange
-  }));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (LeftPanel);
-
-/***/ }),
-
-/***/ "./client/components/Loader.jsx":
-/*!**************************************!*\
-  !*** ./client/components/Loader.jsx ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* eslint-disable no-unused-vars */
-
-
-function Loader() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "loader"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "loader-middle"
-  }));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Loader);
-
-/***/ }),
-
-/***/ "./client/components/MoveList.jsx":
-/*!****************************************!*\
-  !*** ./client/components/MoveList.jsx ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api */ "./client/api.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-/* eslint-disable no-unused-vars */
-
 
 
 
@@ -543,7 +641,7 @@ function MoveList(_ref) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoader(true);
-    Object(_api__WEBPACK_IMPORTED_MODULE_2__["fetchMove"])(moves[moveIndex].move.url).then(function (move) {
+    Object(_api__WEBPACK_IMPORTED_MODULE_1__["fetchMove"])(moves[moveIndex].move.url).then(function (move) {
       return setNewMove(move.body);
     })["finally"](function () {
       return setLoader(false);
@@ -590,10 +688,10 @@ function MoveList(_ref) {
 
 /***/ }),
 
-/***/ "./client/components/PokeSearch.jsx":
-/*!******************************************!*\
-  !*** ./client/components/PokeSearch.jsx ***!
-  \******************************************/
+/***/ "./client/components/RightPanel/RightPanel.jsx":
+/*!*****************************************************!*\
+  !*** ./client/components/RightPanel/RightPanel.jsx ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -601,51 +699,11 @@ function MoveList(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.mjs");
-/* eslint-disable no-unused-vars */
-
-
-
-
-function PokeSearch(_ref) {
-  var handleSubmit = _ref.handleSubmit,
-      handleChange = _ref.handleChange;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "screen input",
-    type: "text",
-    name: "pokemon",
-    placeholder: "Search Pokemon!",
-    onChange: handleChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    type: "submit",
-    onClick: handleSubmit,
-    className: "game-plus",
-    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPlus"]
-  })));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (PokeSearch);
-
-/***/ }),
-
-/***/ "./client/components/RightPanel.jsx":
-/*!******************************************!*\
-  !*** ./client/components/RightPanel.jsx ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Evolution__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Evolution */ "./client/components/Evolution.jsx");
-/* harmony import */ var _Stats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Stats */ "./client/components/Stats.jsx");
-/* harmony import */ var _MoveList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MoveList */ "./client/components/MoveList.jsx");
-/* harmony import */ var _Abilities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Abilities */ "./client/components/Abilities.jsx");
-/* harmony import */ var _Types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Types */ "./client/components/Types.jsx");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../api */ "./client/api.js");
+/* harmony import */ var _Evolution__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Evolution */ "./client/components/RightPanel/Evolution.jsx");
+/* harmony import */ var _Stats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Stats */ "./client/components/RightPanel/Stats.jsx");
+/* harmony import */ var _MoveList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MoveList */ "./client/components/RightPanel/MoveList.jsx");
+/* harmony import */ var _Types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Types */ "./client/components/RightPanel/Types.jsx");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../api */ "./client/api.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -668,7 +726,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function RightPanel(_ref) {
   var pokemonData = _ref.pokemonData,
       speciesData = _ref.speciesData,
@@ -682,7 +739,7 @@ function RightPanel(_ref) {
   var url = pokemonData.species.url;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoader(true);
-    Object(_api__WEBPACK_IMPORTED_MODULE_6__["fetchSpecies"])(url).then(function (res) {
+    Object(_api__WEBPACK_IMPORTED_MODULE_5__["fetchSpecies"])(url).then(function (res) {
       return setSpeciesData(res.body);
     })["finally"](function () {
       return setLoader(false);
@@ -696,7 +753,7 @@ function RightPanel(_ref) {
     className: "panel-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
     pokemonData: pokemonData
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Types__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Types__WEBPACK_IMPORTED_MODULE_4__["default"], {
     pokemonData: pokemonData
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evolution__WEBPACK_IMPORTED_MODULE_1__["default"], {
     speciesData: speciesData
@@ -709,71 +766,10 @@ function RightPanel(_ref) {
 
 /***/ }),
 
-/***/ "./client/components/Sprite.jsx":
-/*!**************************************!*\
-  !*** ./client/components/Sprite.jsx ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-/* eslint-disable no-unused-vars */
-
-
-function Sprite(_ref) {
-  var pokemonData = _ref.pokemonData;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('front_default'),
-      _useState2 = _slicedToArray(_useState, 2),
-      image = _useState2[0],
-      setImage = _useState2[1];
-
-  function handleImage() {
-    image === 'front_default' ? setImage('back_default') : setImage('front_default');
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "spriteScreen"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "pokemon-sprite"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "pokemon",
-    src: pokemonData.sprites[image],
-    alt: "Front sprite of ".concat(pokemonData.name)
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "sprite-controls"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "sprite-control sprite-controls-gender ",
-    onClick: handleImage
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "sprite-control sprite-controls-rotate ",
-    onClick: handleImage
-  })));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Sprite);
-
-/***/ }),
-
-/***/ "./client/components/Stats.jsx":
-/*!*************************************!*\
-  !*** ./client/components/Stats.jsx ***!
-  \*************************************/
+/***/ "./client/components/RightPanel/Stats.jsx":
+/*!************************************************!*\
+  !*** ./client/components/RightPanel/Stats.jsx ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -800,10 +796,10 @@ function Stats(_ref) {
 
 /***/ }),
 
-/***/ "./client/components/Types.jsx":
-/*!*************************************!*\
-  !*** ./client/components/Types.jsx ***!
-  \*************************************/
+/***/ "./client/components/RightPanel/Types.jsx":
+/*!************************************************!*\
+  !*** ./client/components/RightPanel/Types.jsx ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -834,6 +830,32 @@ function Types(_ref) {
 
 /***/ }),
 
+/***/ "./client/components/Title.jsx":
+/*!*************************************!*\
+  !*** ./client/components/Title.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable no-unused-vars */
+
+
+function Title() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "titutal"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "../pokemon.png"
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Title);
+
+/***/ }),
+
 /***/ "./client/components/pokeHelper.js":
 /*!*****************************************!*\
   !*** ./client/components/pokeHelper.js ***!
@@ -844,14 +866,11 @@ function Types(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchingPokemon", function() { return fetchingPokemon; });
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./client/api.js");
-
 function fetchingPokemon(pokemon, setLoading, fetchPokemon, setPokemonData) {
   setLoading(true);
   setTimeout(function () {
     fetchPokemon(pokemon).then(function (data) {
       setPokemonData(data.body);
-      console.log(data.body);
     })["finally"](function () {
       setLoading(false);
     })["catch"](function (err) {
@@ -859,7 +878,7 @@ function fetchingPokemon(pokemon, setLoading, fetchPokemon, setPokemonData) {
     });
   }, 1500);
 }
-/* harmony default export */ __webpack_exports__["default"] = (_api__WEBPACK_IMPORTED_MODULE_0__["fetchPokemon"]);
+/* harmony default export */ __webpack_exports__["default"] = (fetchingPokemon);
 
 /***/ }),
 
