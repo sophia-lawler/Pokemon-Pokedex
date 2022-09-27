@@ -191,11 +191,7 @@ function App() {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     Object(_pokeHelper__WEBPACK_IMPORTED_MODULE_7__["fetchingPokemon"])(randomId, setLoading, _api__WEBPACK_IMPORTED_MODULE_6__["fetchPokemon"], setPokemonData);
   }, [randomId]);
-  return loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Title__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "pokedex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Title__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pokedex"
@@ -205,10 +201,17 @@ function App() {
     speciesData: speciesData,
     setRandomId: setRandomId,
     loading: loading
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Divider__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightPanel_RightPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Divider__WEBPACK_IMPORTED_MODULE_1__["default"], null), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel right-panel"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "screen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "...loading")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightPanel_RightPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {
     pokemonData: pokemonData,
     speciesData: speciesData,
-    setSpeciesData: setSpeciesData
+    setSpeciesData: setSpeciesData,
+    loading: loading
   })));
 }
 
@@ -324,7 +327,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function LeftPanel(_ref) {
   var pokemonData = _ref.pokemonData,
       setUserInputPokemon = _ref.setUserInputPokemon,
-      setRandomId = _ref.setRandomId;
+      setRandomId = _ref.setRandomId,
+      loading = _ref.loading;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
@@ -346,7 +350,23 @@ function LeftPanel(_ref) {
     setRandomId(index);
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel left-panel"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "button"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "titleScreen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "pokemon-name"
+  }, "...Loading")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pokemonData: pokemonData,
+    loading: loading
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "screen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PokeSearch__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    handleSubmit: handleSubmit,
+    handleChange: handleChange
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "panel left-panel"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "button",
@@ -421,6 +441,7 @@ function PokeSearch(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Loader */ "./client/components/Loader.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -436,8 +457,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* eslint-disable no-unused-vars */
 
 
+
 function Sprite(_ref) {
-  var pokemonData = _ref.pokemonData;
+  var pokemonData = _ref.pokemonData,
+      loading = _ref.loading;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('front_default'),
       _useState2 = _slicedToArray(_useState, 2),
@@ -448,7 +471,19 @@ function Sprite(_ref) {
     image === 'front_default' ? setImage('back_default') : setImage('front_default');
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spriteScreen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pokemon-sprite"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_1__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sprite-controls"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "sprite-control sprite-controls-gender ",
+    onClick: handleImage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "sprite-control sprite-controls-rotate ",
+    onClick: handleImage
+  }))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spriteScreen"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pokemon-sprite"
@@ -533,23 +568,26 @@ function Evolution(_ref) {
       loader = _useState2[0],
       setLoader = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([1, 2, 3]),
       _useState4 = _slicedToArray(_useState3, 2),
       evoArray = _useState4[0],
       setEvoArray = _useState4[1];
 
-  var url = speciesData.evolution_chain.url;
+  var url = speciesData === null || speciesData === void 0 ? void 0 : speciesData.evolution_chain.url;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoader(true);
     Object(_api__WEBPACK_IMPORTED_MODULE_1__["fetchEvolution"])(url).then(function (res) {
+      var _res$body$chain, _evoTwo$evolves_to$;
+
       var evoOne = res.body.chain.species.name;
-      var evoTwo = res.body.chain.evolves_to[0];
-      var evoThree = evoTwo.evolves_to[0].species.name;
-      var evoChain = [evoOne, evoTwo.species.name, evoThree];
+      var evoTwo = (_res$body$chain = res.body.chain) === null || _res$body$chain === void 0 ? void 0 : _res$body$chain.evolves_to[0];
+      var evoThree = evoTwo === null || evoTwo === void 0 ? void 0 : (_evoTwo$evolves_to$ = evoTwo.evolves_to[0]) === null || _evoTwo$evolves_to$ === void 0 ? void 0 : _evoTwo$evolves_to$.species.name;
+      var evoChain = [evoOne, evoTwo === null || evoTwo === void 0 ? void 0 : evoTwo.species.name, evoThree];
       return Promise.all(evoChain.map(function (evo) {
         return Object(_api__WEBPACK_IMPORTED_MODULE_1__["fetchPokemon"])(evo);
       }));
     }).then(function (res) {
+      console.log('fetchEvo', res.body);
       var pokeArray = res.map(function (res) {
         return res.body;
       });
@@ -564,7 +602,7 @@ function Evolution(_ref) {
     className: "panel-row panel-evo"
   }, evoArray.map(function (evo, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: evo.id
+      key: i
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "flex-center"
     }, i === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -573,7 +611,11 @@ function Evolution(_ref) {
       className: "evo-num"
     }, "II") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
       className: "evo-num"
-    }, "II")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, "II")), typeof evo === 'number' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/30ac2a54dfa0553.png",
+      alt: "?",
+      className: "pokemon-sprite pokemon-sprite-small"
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: evo.sprites.front_default,
       alt: "pokemon",
       className: "pokemon-sprite pokemon-sprite-small"
@@ -649,13 +691,13 @@ function MoveList(_ref) {
       return console.log(err);
     });
   }, [moveIndex]);
-  return loader ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "panel-header"
   }, "Moves"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "move-list"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "move-body move-screen screen"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, loader ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "move-left"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "move-name"
@@ -669,7 +711,7 @@ function MoveList(_ref) {
     className: "move-right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "move-type"
-  }, "Type: ", newMove.type.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Type: ", newMove.type.name))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sprite-controls"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "sprite-control sprite-controls-gender ",
@@ -729,7 +771,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function RightPanel(_ref) {
   var pokemonData = _ref.pokemonData,
       speciesData = _ref.speciesData,
-      setSpeciesData = _ref.setSpeciesData;
+      setSpeciesData = _ref.setSpeciesData,
+      loading = _ref.loading;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState2 = _slicedToArray(_useState, 2),
@@ -747,7 +790,13 @@ function RightPanel(_ref) {
       return console.error(err);
     });
   }, []);
-  return loader ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return loader ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel right-panel"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "screen"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "...loading")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "panel right-panel"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "panel-row"
@@ -860,7 +909,7 @@ function Title() {
 /*!*****************************************!*\
   !*** ./client/components/pokeHelper.js ***!
   \*****************************************/
-/*! exports provided: fetchingPokemon, default */
+/*! exports provided: fetchingPokemon */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -878,7 +927,6 @@ function fetchingPokemon(pokemon, setLoading, fetchPokemon, setPokemonData) {
     });
   }, 1500);
 }
-/* harmony default export */ __webpack_exports__["default"] = (fetchingPokemon);
 
 /***/ }),
 

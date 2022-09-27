@@ -16,5 +16,3 @@ export function fetchingPokemon(
       .catch((err) => console.error(err.message))
   }, 1500)
 }
-
-export default fetchingPokemon

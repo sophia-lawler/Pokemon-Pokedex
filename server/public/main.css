@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 img {
@@ -11,8 +10,8 @@ img {
   width: 100vw;
 }
 .loader {
-  border: 24px solid #FFF;
-  border-color: #FF3D00 #FF3D00 #fff #fff;
+  border: 24px solid #fff;
+  border-color: #ff3d00 #ff3d00 #fff #fff;
   border-radius: 50%;
   animation: rotate 2.5s ease infinite;
   width: 22px;
@@ -40,7 +39,7 @@ img {
   50% {
     transform: rotate(315deg);
   }
-    100% {
+  100% {
     transform: rotate(-45deg);
   }
 }
@@ -56,8 +55,8 @@ p {
 }
 
 body {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   background-color: #09a8ff;
   height: 100vh;
   color: black;
@@ -74,7 +73,7 @@ body {
 .pokedex {
   background-color: #e61515;
   width: 848px;
-height: 650px;
+  height: 650px;
   margin: 0 auto;
   padding: 1em;
   border-radius: 15px;
@@ -125,7 +124,14 @@ height: 650px;
 }
 
 .hinge {
-  background: linear-gradient(90deg, #891313 0, #b31818 30%, #e61515 45%, #fd5555 65%, #e61515 95%);
+  background: linear-gradient(
+    90deg,
+    #891313 0,
+    #b31818 30%,
+    #e61515 45%,
+    #fd5555 65%,
+    #e61515 95%
+  );
   border-right-color: #fd5555;
   border-top-color: #fd5555;
   flex: 10;
@@ -140,14 +146,25 @@ height: 650px;
   border-radius: 5px 5px 0 0;
 }
 .gap {
-  background: linear-gradient(90deg, #460f0f 0, #891313 30%, #b31818 45%, #fd5555 65%, #b31818 95%);
+  background: linear-gradient(
+    90deg,
+    #460f0f 0,
+    #891313 30%,
+    #b31818 45%,
+    #fd5555 65%,
+    #b31818 95%
+  );
   border-top-color: #891313;
   border-right-color: #b31818;
   flex: 1;
   width: 95%;
 }
 .screen {
-  background: linear-gradient(14deg, rgb(165, 205, 83) 60%, rgb(193, 217, 144) 65%);
+  background: linear-gradient(
+    14deg,
+    rgb(165, 205, 83) 60%,
+    rgb(193, 217, 144) 65%
+  );
   padding: 5px;
   border-radius: 3px;
   font-family: 'Press Start 2P';
@@ -161,7 +178,11 @@ height: 650px;
 }
 
 .titleScreen {
-  background: linear-gradient(14deg, rgb(165, 205, 83) 60%, rgb(193, 217, 144) 65%);
+  background: linear-gradient(
+    14deg,
+    rgb(165, 205, 83) 60%,
+    rgb(193, 217, 144) 65%
+  );
   padding: 5px;
   border-radius: 3px;
   font-family: 'Press Start 2P';
@@ -169,8 +190,9 @@ height: 650px;
   font-size: 0.7em;
   min-width: auto;
   margin-left: auto;
-  display: flex; 
-  justify-content:right}
+  display: flex;
+  justify-content: right;
+}
 .pokemon-name {
   font-size: 1.1em;
   letter-spacing: 4px;
@@ -186,38 +208,44 @@ height: 650px;
   width: 250px;
   height: 200px;
   margin-top: 20px;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   image-rendering: pixelated;
   border: inset #9aa28b 3px;
   border-radius: 5px;
   box-sizing: border-box;
-  background: linear-gradient(15deg, #cad5b5 64%, #dde2d4 70%, #dde2d4 81%, #fff 86%, #dde2d4 89%, #dde2d4 100%);
+  background: linear-gradient(
+    15deg,
+    #cad5b5 64%,
+    #dde2d4 70%,
+    #dde2d4 81%,
+    #fff 86%,
+    #dde2d4 89%,
+    #dde2d4 100%
+  );
 }
 .pokemon {
   width: 250px;
-  height:250px;
-  margin:0;
+  height: 250px;
+  margin: 0;
   margin-bottom: 10px;
-
 }
-.spriteScreen
-	{
-		height: 245px;
-		width: 300px;
-		padding: 0 20px;
-    background: linear-gradient(14deg, #afafaf 50%, #ffffff 80%, #afafaf 90%);
-		top: 130px;
-		left: 19px;
-    margin: 10px;
-    border: groove #757575 3px;
-    border-radius: 10px;
-		-webkit-border-radius: 15px;
-		-moz-border-radius: 15px;
-		-o-border-radius: 15px;
-    display: flex;
-    justify-content: center;
-	}
+.spriteScreen {
+  height: 245px;
+  width: 300px;
+  padding: 0 20px;
+  background: linear-gradient(14deg, #afafaf 50%, #ffffff 80%, #afafaf 90%);
+  top: 130px;
+  left: 19px;
+  margin: 10px;
+  border: groove #757575 3px;
+  border-radius: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
 .sprite-controls {
   display: flex;
   justify-content: space-around;
@@ -241,7 +269,7 @@ justify-content: center;
     rgb(124, 214, 237) 20%,
     rgb(24, 165, 246) 62%,
     rgb(2, 142, 249) 100%
-);
+  );
   padding: 1px;
   border-color: #b06868;
 }
@@ -270,7 +298,7 @@ justify-content: center;
     rgb(124, 214, 237) 20%,
     rgb(24, 165, 246) 62%,
     rgb(2, 142, 249) 100%
-);
+  );
 }
 /* types */
 .type {
@@ -290,13 +318,13 @@ justify-content: center;
   text-shadow: rgba(255, 255, 255, 0.3) -1px 1px;
   align-self: center;
   background: linear-gradient(
-      15deg,
-      rgba(128, 128, 128, 0.5) 64%,
-      rgba(138, 138, 138, 0.5) 70%,
-      rgba(230, 230, 230, 0.5) 81%,
-      rgba(255, 255, 255, 0.5) 86%,
-      rgba(220, 220, 220, 0.5) 89%,
-      rgba(230, 230, 230, 0.5) 100%
+    15deg,
+    rgba(128, 128, 128, 0.5) 64%,
+    rgba(138, 138, 138, 0.5) 70%,
+    rgba(230, 230, 230, 0.5) 81%,
+    rgba(255, 255, 255, 0.5) 86%,
+    rgba(220, 220, 220, 0.5) 89%,
+    rgba(230, 230, 230, 0.5) 100%
   );
   background-blend-mode: hard-light;
 }
@@ -309,7 +337,14 @@ justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(14deg, #460f0f 0, #891313 30%, #b31818 45%, #fd5555 65%, #b31818 95%);
+  background: linear-gradient(
+    14deg,
+    #460f0f 0,
+    #891313 30%,
+    #b31818 45%,
+    #fd5555 65%,
+    #b31818 95%
+  );
   border: groove #e61515 3px;
   border-width: 3px 2px;
   text-shadow: #fd5555 -1px 1px;
@@ -350,7 +385,15 @@ justify-content: center;
   flex-wrap: wrap;
 }
 .empty-evo {
-  background: linear-gradient(15deg, #83887b 64%, #8b8f81 70%, #8b8f81 81%, #babfb1 86%, #8b8f81 89%, #8b8f81 100%);
+  background: linear-gradient(
+    15deg,
+    #83887b 64%,
+    #8b8f81 70%,
+    #8b8f81 81%,
+    #babfb1 86%,
+    #8b8f81 89%,
+    #8b8f81 100%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,7 +425,7 @@ justify-content: center;
   font-size: 0.7em;
 }
 .move-screen {
-
+  height: 70px;
   padding: 10px 20px;
   flex: 1;
 }
@@ -390,7 +433,6 @@ justify-content: center;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-
 }
 .move-name {
   border-bottom: solid black 2px;
@@ -418,7 +460,7 @@ justify-content: center;
   text-transform: capitalize;
   margin-right: 3px;
   margin-bottom: 5px;
-  margin-top:5px;
+  margin-top: 5px;
 }
 .flex-center {
   display: flex;
@@ -447,35 +489,35 @@ justify-content: center;
   border: outset rgb(248, 187, 187) 6px;
   transform: rotate(60deg);
   background: radial-gradient(
-      circle farthest-corner at 40% 25%,
-      rgb(218, 237, 241) 9%,
-      rgb(124, 214, 237) 20%,
-      rgb(64, 90, 165) 62%,
-      rgb(43, 125, 196) 100%
+    circle farthest-corner at 40% 25%,
+    rgb(218, 237, 241) 9%,
+    rgb(124, 214, 237) 20%,
+    rgb(64, 90, 165) 62%,
+    rgb(43, 125, 196) 100%
   );
   cursor: pointer;
 }
 .button:hover {
   background: radial-gradient(
-      circle farthest-corner at 40% 25%,
-      rgb(233, 241, 218) 9%,
-      rgb(184, 237, 124) 20%,
-      rgb(64, 165, 106) 62%,
-      rgb(43, 196, 145) 100%
+    circle farthest-corner at 40% 25%,
+    rgb(233, 241, 218) 9%,
+    rgb(184, 237, 124) 20%,
+    rgb(64, 165, 106) 62%,
+    rgb(43, 196, 145) 100%
   );
 }
 .button:active {
   background: radial-gradient(
-      circle farthest-corner at 40% 25%,
-      rgb(229, 255, 181) 9%,
-      rgb(204, 237, 124) 20%,
-      rgb(103, 165, 64) 62%,
-      rgb(66, 204, 40) 100%
+    circle farthest-corner at 40% 25%,
+    rgb(229, 255, 181) 9%,
+    rgb(204, 237, 124) 20%,
+    rgb(103, 165, 64) 62%,
+    rgb(66, 204, 40) 100%
   );
 }
 .button::after {
   border: groove #460f0f 5px;
-  content: "";
+  content: '';
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -513,9 +555,9 @@ justify-content: center;
 .game-plus {
   stroke: black;
   stroke-width: 35;
-width: 80px;
-height: 80px;
-cursor:pointer;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
 }
 .submit {
   border: groove #5f845e 3px;

@@ -7,7 +7,7 @@ import MoveList from './MoveList'
 import Types from './Types'
 import { fetchSpecies } from '../../api'
 
-function RightPanel({ pokemonData, speciesData, setSpeciesData }) {
+function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
   const [loader, setLoader] = useState(true)
   const url = pokemonData.species.url
 
@@ -20,7 +20,13 @@ function RightPanel({ pokemonData, speciesData, setSpeciesData }) {
   }, [])
 
   return loader ? (
-    <p>Loading...</p>
+    <div className="panel right-panel">
+      <div className="panel-row">
+        <div className="screen">
+          <p>...loading</p>
+        </div>
+      </div>
+    </div>
   ) : (
     <div className="panel right-panel">
       <div className="panel-row">

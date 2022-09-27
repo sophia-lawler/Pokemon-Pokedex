@@ -4,7 +4,7 @@ import Abilities from './Abilities'
 import Sprite from './Sprite'
 import PokeSearch from './PokeSearch'
 
-function LeftPanel({ pokemonData, setUserInputPokemon, setRandomId }) {
+function LeftPanel({ pokemonData, setUserInputPokemon, setRandomId, loading }) {
   const [form, setForm] = useState('')
 
   function handleChange(event) {
@@ -21,7 +21,19 @@ function LeftPanel({ pokemonData, setUserInputPokemon, setRandomId }) {
     setRandomId(index)
   }
 
-  return (
+  return loading ? (
+    <div className="panel left-panel">
+      <div className="button"></div>
+      <div className="titleScreen">
+        <h2 className="pokemon-name">...Loading</h2>
+      </div>
+      <Sprite pokemonData={pokemonData} loading={loading} />
+      <div className="screen">
+        <p> ...</p>
+      </div>
+      <PokeSearch handleSubmit={handleSubmit} handleChange={handleChange} />
+    </div>
+  ) : (
     <div className="panel left-panel">
       <div className="button" onClick={handleClick}></div>
       <div className="titleScreen">

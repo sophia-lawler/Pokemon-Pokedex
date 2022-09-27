@@ -26,14 +26,7 @@ function App() {
     fetchingPokemon(randomId, setLoading, fetchPokemon, setPokemonData)
   }, [randomId])
 
-  return loading ? (
-    <div className="wrapper">
-      <Title />
-      <div className="pokedex">
-        <Loader />
-      </div>
-    </div>
-  ) : (
+  return (
     <div className="wrapper">
       <Title />
       <div className="pokedex">
@@ -45,11 +38,22 @@ function App() {
           loading={loading}
         />
         <Divider />
-        <RightPanel
-          pokemonData={pokemonData}
-          speciesData={speciesData}
-          setSpeciesData={setSpeciesData}
-        />
+        {loading ? (
+          <div className="panel right-panel">
+            <div className="panel-row">
+              <div className="screen">
+                <p>...loading</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <RightPanel
+            pokemonData={pokemonData}
+            speciesData={speciesData}
+            setSpeciesData={setSpeciesData}
+            loading={loading}
+          />
+        )}
       </div>
     </div>
   )
