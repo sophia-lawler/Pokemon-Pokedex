@@ -13,7 +13,8 @@ function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
 
   useEffect(() => {
     setLoader(true)
-    fetchSpecies(url)
+
+    pokemonData && fetchSpecies(url)
       .then((res) => setSpeciesData(res.body))
       .finally(() => setLoader(false))
       .catch((err) => console.error(err))

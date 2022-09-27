@@ -475,7 +475,7 @@ function Sprite(_ref) {
     className: "spriteScreen"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pokemon-sprite"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_1__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sprite-controls"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "sprite-control sprite-controls-gender ",
@@ -587,7 +587,6 @@ function Evolution(_ref) {
         return Object(_api__WEBPACK_IMPORTED_MODULE_1__["fetchPokemon"])(evo);
       }));
     }).then(function (res) {
-      console.log('fetchEvo', res.body);
       var pokeArray = res.map(function (res) {
         return res.body;
       });
@@ -782,7 +781,7 @@ function RightPanel(_ref) {
   var url = pokemonData.species.url;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoader(true);
-    Object(_api__WEBPACK_IMPORTED_MODULE_5__["fetchSpecies"])(url).then(function (res) {
+    pokemonData && Object(_api__WEBPACK_IMPORTED_MODULE_5__["fetchSpecies"])(url).then(function (res) {
       return setSpeciesData(res.body);
     })["finally"](function () {
       return setLoader(false);

@@ -18,7 +18,6 @@ function Evolution({ speciesData }) {
         return Promise.all(evoChain.map((evo) => fetchPokemon(evo)))
       })
       .then((res) => {
-        console.log('fetchEvo', res.body)
         const pokeArray = res.map((res) => res.body)
         setEvoArray(pokeArray)
       })

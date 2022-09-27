@@ -14,9 +14,9 @@ function Sprite({ pokemonData, loading }) {
     <>
       <div className="spriteScreen">
         <div className="pokemon-sprite">
-          <Loader />
         </div>
       </div>
+      <Loader />
       <div className="sprite-controls">
         <button
           className="sprite-control sprite-controls-gender "
