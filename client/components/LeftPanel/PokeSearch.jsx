@@ -5,7 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function PokeSearch({ handleSubmit, handleChange }) {
   return (
-   <>
+    <>
       <form>
         <input
           className="screen input"
@@ -14,9 +14,14 @@ function PokeSearch({ handleSubmit, handleChange }) {
           placeholder="Search Pokemon!"
           onChange={handleChange}
         ></input>
-        <FontAwesomeIcon type="submit" onClick={handleSubmit} className='game-plus' icon={faPlus} />
+        <FontAwesomeIcon
+          type="submit"
+          onClick={handleSubmit}
+          className="game-plus"
+          icon={faPlus}
+        />
       </form>
-      </>
+    </>
   )
 }
 

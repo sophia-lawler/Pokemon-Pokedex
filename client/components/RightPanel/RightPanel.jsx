@@ -4,24 +4,30 @@ import React, { useEffect, useState } from 'react'
 import Evolution from './Evolution'
 import Stats from './Stats'
 import MoveList from './MoveList'
-import Abilities from './Abilities'
 import Types from './Types'
-import { fetchSpecies } from '../api'
+import { fetchSpecies } from '../../api'
 
-function RightPanel({ pokemonData, speciesData, setSpeciesData }) {
+function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
   const [loader, setLoader] = useState(true)
   const url = pokemonData.species.url
 
   useEffect(() => {
     setLoader(true)
-    fetchSpecies(url)
+
+    pokemonData && fetchSpecies(url)
       .then((res) => setSpeciesData(res.body))
       .finally(() => setLoader(false))
       .catch((err) => console.error(err))
   }, [])
 
   return loader ? (
-    <p>Loading...</p>
+    <div className="panel right-panel">
+      <div className="panel-row">
+        <div className="screen">
+          <p>...loading</p>
+        </div>
+      </div>
+    </div>
   ) : (
     <div className="panel right-panel">
       <div className="panel-row">

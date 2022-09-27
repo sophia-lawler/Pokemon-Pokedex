@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-import { move } from 'superagent'
-import { fetchMove } from '../api'
+import { fetchMove } from '../../api'
 
 function MoveList({ pokemonData }) {
   const { moves } = pokemonData
@@ -26,22 +25,26 @@ function MoveList({ pokemonData }) {
       .catch((err) => console.log(err))
   }, [moveIndex])
 
-  return loader ? (
-    <p>Loading...</p>
-  ) : (
+  return (
     <>
       <p className="panel-header">Moves</p>
       <div className="move-list">
         <div className="move-body move-screen screen">
-          <div className="move-left">
-            <p className="move-name">{moves[moveIndex].move.name}</p>
-            <p className="move-status">Accuracy.....{newMove.accuracy}</p>
-            <p className="move-status">Power.........{newMove.power}</p>
-            <p className="move-status">PP............{newMove.pp}</p>
-          </div>
-          <div className="move-right">
-            <p className="move-type">Type: {newMove.type.name}</p>
-          </div>
+          {loader ? (
+            <p >Loading...</p>
+          ) : (
+            <>
+              <div className="move-left">
+                <p className="move-name">{moves[moveIndex].move.name}</p>
+                <p className="move-status">Accuracy.....{newMove.accuracy}</p>
+                <p className="move-status">Power.........{newMove.power}</p>
+                <p className="move-status">PP............{newMove.pp}</p>
+              </div>
+              <div className="move-right">
+                <p className="move-type">Type: {newMove.type.name}</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="sprite-controls">
