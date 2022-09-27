@@ -5,6 +5,7 @@ import Evolution from './Evolution'
 import Stats from './Stats'
 import MoveList from './MoveList'
 import Types from './Types'
+import Abilities from './Abilities'
 import { fetchSpecies } from '../../api'
 
 function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
@@ -35,6 +36,7 @@ function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
         <Types pokemonData={pokemonData} />
       </div>
       <Evolution speciesData={speciesData} />
+      <Abilities pokemonData={pokemonData} />
       <MoveList pokemonData={pokemonData} />
     </div>
   )

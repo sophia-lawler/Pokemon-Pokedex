@@ -25,7 +25,6 @@ function App() {
   useEffect(() => {
     fetchingPokemon(randomId, setLoading, fetchPokemon, setPokemonData)
   }, [randomId])
-
   return (
     <div className="wrapper">
       <Title />
