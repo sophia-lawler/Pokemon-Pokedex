@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import Abilities from './Abilities'
+import Abilities from '../RightPanel/Abilities'
 import Sprite from './Sprite'
 import PokeSearch from './PokeSearch'
 
-function LeftPanel({ pokemonData, setUserInputPokemon, setRandomId, loading }) {
+function LeftPanel({
+  pokemonData,
+  setUserInputPokemon,
+  setRandomId,
+  loading,
+  speciesData,
+}) {
   const [form, setForm] = useState('')
 
   function handleChange(event) {
@@ -20,6 +26,10 @@ function LeftPanel({ pokemonData, setUserInputPokemon, setRandomId, loading }) {
     const index = Math.floor(Math.random() * (1118 - 1) + 1)
     setRandomId(index)
   }
+
+  const description = speciesData?.flavor_text_entries.find(
+    (entry) => entry.language.name === 'en'
+  )
 
   return loading ? (
     <div className="panel left-panel">
@@ -43,9 +53,8 @@ function LeftPanel({ pokemonData, setUserInputPokemon, setRandomId, loading }) {
       </div>
       <Sprite pokemonData={pokemonData} />
       <div className="screen">
-        <p> placeholder text for some kind of description</p>
+        {description && <p>{description.flavor_text}</p>}
       </div>
-      <Abilities pokemonData={pokemonData} />
       <PokeSearch handleSubmit={handleSubmit} handleChange={handleChange} />
     </div>
   )
