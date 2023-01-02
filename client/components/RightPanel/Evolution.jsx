@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { fetchEvolution, fetchPokemon } from '../../api'
+import { evoFontHelper } from '../pokeHelper'
 
 function Evolution({ speciesData }) {
   const [loader, setLoader] = useState(true)
@@ -44,20 +45,26 @@ function Evolution({ speciesData }) {
               )}
             </div>
             {typeof evo === 'number' ? (
-              <img
-                src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/30ac2a54dfa0553.png"
-                alt="?"
-                className="pokemon-sprite pokemon-sprite-small"
-              ></img>
+              <>
+                <img
+                  src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/30ac2a54dfa0553.png"
+                  alt="?"
+                  className="pokemon-sprite pokemon-sprite-small"
+                ></img>
+                <p className="screen evo-name">XX</p>
+              </>
             ) : (
-              <img
-                src={evo.sprites.front_default}
-                alt="pokemon"
-                className="pokemon-sprite pokemon-sprite-small"
-              ></img>
+              <>
+                <img
+                  src={evo.sprites.front_default}
+                  alt="pokemon"
+                  className="pokemon-sprite pokemon-sprite-small"
+                ></img>
+                <p className="screen evo-name" style={evoFontHelper(evo.name)}>
+                  {evo.name}
+                </p>
+              </>
             )}
-
-            <p className="screen evo-name">{evo.name}</p>
           </div>
         )
       })}
