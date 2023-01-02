@@ -1,6 +1,6 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import Abilities from '../RightPanel/Abilities'
 import Sprite from './Sprite'
 import PokeSearch from './PokeSearch'
 
@@ -20,6 +20,7 @@ function LeftPanel({
   function handleSubmit(event) {
     event.preventDefault()
     setUserInputPokemon(form)
+    setForm('')
   }
   function handleClick(e) {
     e.preventDefault()
