@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import Loader from '../Loader'
@@ -36,6 +37,7 @@ function Sprite({ pokemonData, loading }) {
             className="pokemon"
             src={pokemonData.sprites[image]}
             alt={`Front sprite of ${pokemonData.name}`}
+            style={{height: '100%', width: 'auto'}}
           />
         </div>
       </div>

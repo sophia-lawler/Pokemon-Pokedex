@@ -14,11 +14,11 @@ function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
 
   useEffect(() => {
     setLoader(true)
-
-    pokemonData && fetchSpecies(url)
-      .then((res) => setSpeciesData(res.body))
-      .finally(() => setLoader(false))
-      .catch((err) => console.error(err))
+    pokemonData &&
+      fetchSpecies(url)
+        .then((res) => setSpeciesData(res.body))
+        .finally(() => setLoader(false))
+        .catch((err) => console.error(err))
   }, [])
 
   return loader ? (
@@ -31,13 +31,16 @@ function RightPanel({ pokemonData, speciesData, setSpeciesData, loading }) {
     </div>
   ) : (
     <div className="panel right-panel">
+        <MoveList pokemonData={pokemonData} />
       <div className="panel-row">
-        <Stats pokemonData={pokemonData} />
-        <Types pokemonData={pokemonData} />
-      </div>
+
       <Evolution speciesData={speciesData} />
+      </div>
+      <div className="panel-row">
+        <Types pokemonData={pokemonData} />
+        <Stats pokemonData={pokemonData} />
+      </div>
       <Abilities pokemonData={pokemonData} />
-      <MoveList pokemonData={pokemonData} />
     </div>
   )
 }

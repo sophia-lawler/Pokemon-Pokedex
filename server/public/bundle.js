@@ -268,9 +268,8 @@ function Divider() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _RightPanel_Abilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../RightPanel/Abilities */ "./client/components/RightPanel/Abilities.jsx");
-/* harmony import */ var _Sprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sprite */ "./client/components/LeftPanel/Sprite.jsx");
-/* harmony import */ var _PokeSearch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PokeSearch */ "./client/components/LeftPanel/PokeSearch.jsx");
+/* harmony import */ var _Sprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sprite */ "./client/components/LeftPanel/Sprite.jsx");
+/* harmony import */ var _PokeSearch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PokeSearch */ "./client/components/LeftPanel/PokeSearch.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -283,8 +282,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-unresolved */
 
+/* eslint-disable no-unused-vars */
 
 
 
@@ -308,6 +308,7 @@ function LeftPanel(_ref) {
   function handleSubmit(event) {
     event.preventDefault();
     setUserInputPokemon(form);
+    setForm('');
   }
 
   function handleClick(e) {
@@ -327,12 +328,12 @@ function LeftPanel(_ref) {
     className: "titleScreen"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "pokemon-name"
-  }, "...Loading")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "...Loading")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_1__["default"], {
     pokemonData: pokemonData,
     loading: loading
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "screen"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PokeSearch__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PokeSearch__WEBPACK_IMPORTED_MODULE_2__["default"], {
     handleSubmit: handleSubmit,
     handleChange: handleChange
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -344,11 +345,11 @@ function LeftPanel(_ref) {
     className: "titleScreen"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "pokemon-name"
-  }, pokemonData.name, " no.", pokemonData.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, pokemonData.name, " no.", pokemonData.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sprite__WEBPACK_IMPORTED_MODULE_1__["default"], {
     pokemonData: pokemonData
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "screen"
-  }, description && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, description.flavor_text)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PokeSearch__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, description && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, description.flavor_text)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PokeSearch__WEBPACK_IMPORTED_MODULE_2__["default"], {
     handleSubmit: handleSubmit,
     handleChange: handleChange
   }));
@@ -421,6 +422,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/* eslint-disable import/no-unresolved */
+
 /* eslint-disable no-unused-vars */
 
 
@@ -457,7 +460,11 @@ function Sprite(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "pokemon",
     src: pokemonData.sprites[image],
-    alt: "Front sprite of ".concat(pokemonData.name)
+    alt: "Front sprite of ".concat(pokemonData.name),
+    style: {
+      height: '100%',
+      width: 'auto'
+    }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sprite-controls"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -522,7 +529,11 @@ function Abilities(_ref) {
   }, pokemonData.abilities.map(function (x, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       key: i,
-      className: "type normal"
+      className: "type dark",
+      style: {
+        color: 'grey',
+        padding: '10px'
+      }
     }, x.ability.name);
   })));
 }
@@ -543,6 +554,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./client/api.js");
+/* harmony import */ var _pokeHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pokeHelper */ "./client/components/pokeHelper.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -556,6 +568,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* eslint-disable no-unused-vars */
+
 
 
 
@@ -609,17 +622,20 @@ function Evolution(_ref) {
       className: "evo-num"
     }, "II") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
       className: "evo-num"
-    }, "II")), typeof evo === 'number' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, "II")), typeof evo === 'number' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/30ac2a54dfa0553.png",
       alt: "?",
       className: "pokemon-sprite pokemon-sprite-small"
-    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "screen evo-name"
+    }, "XX")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: evo.sprites.front_default,
       alt: "pokemon",
       className: "pokemon-sprite pokemon-sprite-small"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      className: "screen evo-name"
-    }, evo.name));
+      className: "screen evo-name",
+      style: Object(_pokeHelper__WEBPACK_IMPORTED_MODULE_2__["evoFontHelper"])(evo.name)
+    }, evo.name)));
   }));
 }
 
@@ -798,17 +814,19 @@ function RightPanel(_ref) {
     className: "screen"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "...loading")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "panel right-panel"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MoveList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    pokemonData: pokemonData
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "panel-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    pokemonData: pokemonData
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Types__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    pokemonData: pokemonData
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evolution__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evolution__WEBPACK_IMPORTED_MODULE_1__["default"], {
     speciesData: speciesData
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Abilities__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Types__WEBPACK_IMPORTED_MODULE_4__["default"], {
     pokemonData: pokemonData
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MoveList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pokemonData: pokemonData
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Abilities__WEBPACK_IMPORTED_MODULE_5__["default"], {
     pokemonData: pokemonData
   }));
 }
@@ -911,12 +929,13 @@ function Title() {
 /*!*****************************************!*\
   !*** ./client/components/pokeHelper.js ***!
   \*****************************************/
-/*! exports provided: fetchingPokemon */
+/*! exports provided: fetchingPokemon, evoFontHelper */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchingPokemon", function() { return fetchingPokemon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "evoFontHelper", function() { return evoFontHelper; });
 function fetchingPokemon(pokemon, setLoading, fetchPokemon, setPokemonData) {
   setLoading(true);
   setTimeout(function () {
@@ -928,6 +947,14 @@ function fetchingPokemon(pokemon, setLoading, fetchPokemon, setPokemonData) {
       return console.error(err.message);
     });
   }, 1500);
+}
+function evoFontHelper(evolution) {
+  var style = evolution.length > 9 ? {
+    fontSize: '0.5em'
+  } : {
+    fontSize: '0.8em'
+  };
+  return style;
 }
 
 /***/ }),
